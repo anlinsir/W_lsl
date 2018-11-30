@@ -1,0 +1,51 @@
+
+<view class='top_header_img'>
+  <image class='bgi' src='/static/images/pc_mine_back.png'></image>
+  <view style='display:flex;line-height:160rpx;'>
+    <view class='back_white'>
+        <image src="{{info.thumb || '/static/images/btn_login_pressed.png'}}"></image>
+        
+    </view>
+    <view>
+      <text style='display:inline-block;width:365rpx;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;transform:translateY(130rpx) translateX(30rpx);font-size:34rpx;color:rgba(34,34,34,1);'>{{info.nickname}}</text>
+      <!-- <text style='display:inline-block;width:80%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;font-size:28rpx;color:rgba(187,187,187,1);transform:translateY(-45rpx) translateX(30rpx);'>{{info.nickname}}</text> -->
+    </view>
+    
+  </view>
+</view>
+
+<view class='bottom_list'>  
+  
+  <view style='display:flex;margin-bottom:31rpx;'>
+    <view class='line'>
+
+    </view>
+    <text class='text'>TA的发布</text>
+  </view>
+
+  <view class="positions">
+    <position
+    
+      wx:for="{{items}}"
+      my-class="position"
+      data-id="{{item.id}}"
+      title="{{item.title}}"
+      price="{{item.price}}"
+      city="{{item.cc || item.cb}}"
+      level="{{item.pb || null}}"
+      position="{{item.pa}}"
+      status="{{item.status}}"
+      top="{{item.stick==1}}"
+      invalid="{{item.status==2}}"
+      is_stick="{{item.is_stick}}"
+      isTell="{{item.price==0}}"
+      date="{{item.created_at}}"
+      icon="{{item.img.image}}"
+      bindtap="gotoPosition"
+      />
+
+  </view>
+  <view hidden="{{!loading && items.length==0}}">
+    <i-load-more tip="{{ items.length>0&&!loading?'暂无更多二手信息':'' }}" loading="{{ loading }}" />      
+  </view>
+</view>

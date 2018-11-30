@@ -1,0 +1,86 @@
+<!--pages/user/index.wxml-->
+<view>
+<!-- 全局提示 -->
+   <view  class='user_back'>
+   <view class='logins'>
+     <button
+        class="login"
+        hover-class="my-info-hover"
+        open-type="getUserInfo"
+        bindgetuserinfo="toLogin">
+        <view class="my-info">
+          <view class="head">
+            <image wx:if="{{user == null}}" src="/static/images/btn_login.png"></image>
+            <image wx:else src="{{user.avatar}}"></image>
+          </view>
+          <view class="name">
+            <text wx:if="{{user == null}}">点击登录</text>
+            <text wx:else>{{user.nickname}}</text>
+          </view>
+        </view>
+      </button> 
+   </view>
+    
+   
+      
+     
+      
+   </view> 
+<i-message id="message" />
+
+      <!-- <button
+        class="login"
+        hover-class="my-info-hover"
+        open-type="getUserInfo"
+        bindgetuserinfo="toLogin">
+        <view class="my-info">
+          <view class="head">
+            <image wx:if="{{user == null}}" src="/static/images/btn_login.png"></image>
+            <image wx:else src="{{user.avatar}}"></image>
+          </view>
+          <view class="name">
+            <text wx:if="{{user == null}}">点击登录</text>
+            <text wx:else>{{user.nickname}}</text>
+          </view>
+        </view>
+      </button>  -->
+  
+
+  <view class="my-tools">
+    <i-row i-class="row">
+      <i-col span="12" i-class="col-class">
+        <usertool
+          icon="/static/images/icon_mine_release.png"
+          name="我的发布"
+          bindtap="gotoMinePublish" />
+      </i-col>
+      <i-col span="12" i-class="col-class">
+        <usertool
+          icon="/static/images/icon_mine_collection.png"
+          name="我的收藏"
+          bindtap="gotoMineLiked" />
+      </i-col>
+    </i-row>
+    <i-row i-class="row">
+      <i-col span="12" i-class="col-class">
+        <usertool
+          icon="/static/images/icon_mine_feedback.png"
+          name="意见反馈"
+          bindtap="gotoFeedback" />
+      </i-col>
+      <i-col span="12" i-class="col-class">
+        <usertool
+          icon="/static/images/icon_mine_ad.png"
+          name="广告管理"
+          bindtap="gotoAd" />
+      </i-col>
+    </i-row>
+  </view>
+  <view
+    wx:if="{{user != null}}"
+    class="my-out"
+    hover-class="my-out-hover"
+    bindtap="toLogout">
+    <text style='color:rgba(241, 96, 51, 1);'>退出账号</text>
+  </view>
+</view>

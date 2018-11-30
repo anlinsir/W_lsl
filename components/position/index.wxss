@@ -1,0 +1,151 @@
+/* components/position/index.wxss */
+
+.p-card {
+  margin-left:20rpx;
+  margin-right: 20rpx;
+  font-size:14px;
+  overflow:hidden;
+  position:relative;
+  background:rgba(255,255,255,1);
+  box-shadow:0rpx 5rpx 20rpx 0rpx rgba(179,196,211,0.27);
+  padding-left: 23rpx;
+  height:211rpx;
+  background:rgba(255,255,255,1);
+  border-radius:20rpx;
+}
+
+.p-card .cover {
+  position: absolute;
+  z-index: 100;
+  top: 0;left: 0;right: 0;bottom: 0;
+  background:linear-gradient(-23deg,rgba(241,96,51,1),rgba(255,147,94,1));
+  opacity:0.78;
+  border-radius:20rpx;
+  transition: all .4;
+}
+
+.p-card .cover .item {
+  color: #fff;
+  font-size:30rpx;
+  font-weight: 400;
+  height: 82rpx;
+  padding-top: 46rpx;
+  text-align: center;
+  width: 175rpx;
+  float: left;
+}
+
+.p-card.hover {
+  opacity: 0.75;
+}
+
+.p-card-icon {
+  width: 160rpx;
+  height: 160rpx;
+  float: left;
+  margin: 25rpx 10rpx 0;
+  background-color: #eeeeee;
+}
+
+.p-card-icon image {
+  width:100%;
+  height:100%;
+ 
+  
+}
+
+.p-card-info {
+  position: absolute;
+  padding: 50rpx 0 40rpx 0rpx;
+  top: -29rpx;
+  bottom: 0;
+  right: 23rpx;
+  left:210rpx;
+
+}
+
+.p-card-info-line1 {
+  font-size:30rpx;
+  color:rgba(83,90,106,1);
+  height: 45rpx;
+  margin-bottom: 10rpx;
+}
+
+.p-card-info-line2 {
+  width:100%;
+  font-size:24rpx;
+  color:rgba(158,160,171,1);
+  margin-bottom: 10rpx;
+}
+.p-card-info-line3{
+  
+}
+
+
+.p-card-info-line2 text:first {
+  border-right: 1rpx solid #BFBFBF;
+}
+
+.p-card-info-line2 .line {
+  display: inline-block;
+  width: 2rpx;
+  height: 18rpx;
+  background: #BFBFBF;
+}
+
+.p-card-info-line1 .p-card-info-title {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 400rpx;
+  font-size:30rpx;
+  font-weight: 600;
+  float: left;
+}
+
+.p-card-info-line1 .top {
+  width:28rpx;
+  height:28rpx;
+  font-size: 18rpx;
+ color:rgba(242,112,71,1);
+  border-radius:2rpx;
+  color: #fff;
+  text-align: center;
+  float: left;
+  position: relative;
+  top: 8rpx;
+  left:4rpx;
+}
+
+.p-card-info-line1 .price {
+  color:rgba(242,112,71,1);
+  font-weight: 500;
+}
+
+.p-card.invalid .p-card-info-line1 .top {
+  background: #9EA0AA;
+}
+
+.p-card.invalid .p-card-info-line1 .price {
+  color: #9EA0AA;
+}
+
+.p-card.invalid .p-card-info-line1 .p-card-info-title {
+  color: #9EA0AA;
+}
+.p-card-info-title_top{
+  color:rgba(255,255,255,1);
+  float:left;
+  background:rgba(242,112,71,1);
+  font-size:25rpx;
+  width:35rpx;
+  vertical-align: middle;
+  margin-left: 10rpx;
+  transform: translateY(5rpx);
+  text-align: center;
+  line-height: 33rpx;
+  height:33rpx;
+}
+.invalid{
+  background:rgba(0,0,0,0.05) !important;
+}

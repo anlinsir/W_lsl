@@ -1,0 +1,125 @@
+/* pages/search/index.wxss */
+
+.top {
+  position: relative;
+  height: 104rpx;
+  display: flex;
+  justify-content: space-between;
+  /* background:linear-gradient(0deg,rgba(23,85,226,1),rgba(42,134,237,1)); */
+}
+
+.search-bar {
+  margin:0 24rpx;
+  width:600rpx;
+  height:72rpx;
+  background:rgba(242,242,242,1);
+  border-radius:36rpx;
+  box-shadow:0rpx 5rpx 20rpx 0rpx rgba(179,196,211,0.27);
+}
+.cancel{
+  transform: translateY(15rpx) translateX(-25rpx);
+}
+
+.search-bar .location-tool {
+  position:relative;z-index: 10;
+  padding-left:36rpx;
+  height:72rpx;
+  line-height:72rpx;  
+  font-size:28rpx;
+  color:rgba(100,111,138,1);
+  float: left;
+}
+
+.search-bar .location-tool text {
+  border-right: 1rpx solid #eaeaea;
+  padding-right: 30rpx;
+}
+
+.search-bar .location-tool image {
+  width: 20rpx;
+  height: 28rpx;
+  margin-right: 6rpx;
+  position:relative;
+  top:4rpx;
+}
+
+.location-tool-hover {
+  color:rgb(197, 201, 214)!important;
+}
+
+.search-bar .search-pen {
+  position:relative;z-index: 9;
+  left:0;
+  right:0;
+  height:80rpx;
+  font-size:28rpx;
+  color:#535A6A;
+  line-height:80rpx;
+}
+
+.search-bar .search-pen image {
+  width: 26rpx;
+  height: 26rpx;
+  margin: 0 11rpx;
+  position:relative;
+  float:left;
+  left:10rpx;
+  top:23rpx;
+}
+
+.search-pen-hover {
+  color:rgb(228, 230, 235)!important;
+}
+
+.search-pen input {
+  /* float: left; */
+  /* position: relative; */
+  /* top: 0;bottom: 0;right: 0; */
+  padding-left: 20rpx;
+  height:72rpx;
+  line-height:72rpx;
+  /* width: 400rpx; */
+}
+
+.keywords-pen .keywords {
+  display: inline-block;
+  margin-top: 40rpx;
+  width: 100%;
+}
+
+.keywords-pen .keywords .title {
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size:28rpx;
+  color:rgba(83,90,106,1);
+  margin: 0 25rpx;
+}
+
+.keywords-pen .keywords .title .delete {
+  width:28rpx;
+  height:28rpx;
+  float: right;
+  position: relative;
+  top: 8rpx;
+}
+
+.keywords .list {
+  padding:0 25rpx;
+}
+
+.keywords .list .item {
+  height:70rpx;
+  line-height: 70rpx;
+  padding: 0 43rpx;
+  font-size:28rpx;
+  color:rgba(83,90,106,1);
+  border-radius:35rpx;
+  border: 1rpx solid #E1E2E7;
+  float:left;
+  margin-top: 33rpx;
+  margin-right: 33rpx;
+}
+
+.keywords .list .item.hover {
+  opacity: 0.75;
+}

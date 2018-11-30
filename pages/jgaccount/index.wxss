@@ -1,0 +1,83 @@
+/* pages/jgaccount/index.wxss */
+.Warp{
+  padding-left: 60rpx;
+  padding-right: 50rpx;
+  box-sizing: border-box;
+  padding-top: 30rpx; 
+ 
+}
+.title{
+  
+  font-size:36rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(34,34,34,1); margin-bottom: 68rpx;
+}
+
+.from{
+  position: relative;
+}
+.from input ,.from .input{
+  height: 76rpx;
+  margin-bottom: 60rpx;
+  transition: all 1s;
+  border-bottom:1rpx solid rgba(233,233,233,1);
+  font-size:30rpx;
+}
+.absolute{
+  position: absolute;
+  width:140rpx;
+  height: 800rpx;
+  background-color: #fff;
+  top:80rpx;
+  box-shadow:0rpx 0rpx 50rpx 10rpx rgba(187,187,187,0.4);
+  overflow: auto;
+  z-index: 1000;
+}
+
+input::-moz-placeholder{
+  color:rgba(187,187,187,1);
+}
+input::placeholder{
+  color:rgba(187,187,187,1);
+}
+.from input:focus{
+  border:1rpx solid rgba(84,115,255,1) !important;
+}
+input:focus{
+  border-bottom:1rpx solid rgba(84,115,255,1) !important;
+}
+
+.choose_Number_type{
+  font-size:30rpx;
+  font-weight: normal;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  width:100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.choose_Number_type_hover{
+  background-color: rgba(84,115,255,0.4);
+  color: #fff;
+}
+.bottom button{
+  width:640rpx;
+  height:100rpx;
+  background:linear-gradient(90deg,rgba(241,96,51,1),rgba(255,147,94,1));
+  box-shadow:0px 4rpx 20rpx 0px rgba(232,45,90,0.35);
+  border-radius:50rpx;
+  color:#fff;
+  font-size:30rpx;
+  line-height: 100rpx;
+}
+.getCode{
+ color:rgba(242,112,71,1);
+ font-size:30rpx;
+ position: absolute;
+ right:24rpx;
+ top:58rpx;
+
+}

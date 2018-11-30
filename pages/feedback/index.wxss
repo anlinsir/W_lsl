@@ -1,0 +1,37 @@
+/* pages/feedback/index.wxss */
+
+page {
+  background-color: #f5f5f5;
+}
+
+.textarea {
+  background:rgba(255,255,255,1);
+  border-radius:20rpx;
+  box-shadow:0rpx 10rpx 30rpx 0rpx rgba(93,122,178,0.1);
+  min-height:560rpx;
+  margin: 30rpx 35rpx;
+  position: relative;
+
+  padding: 45rpx 38rpx;
+}
+
+.textarea textarea {
+  width: 100%;
+  font-size:30rpx;
+}
+
+.sendBtn {
+  background:linear-gradient(90deg,rgba(241,96,51,1),rgba(255,147,94,1));
+  box-shadow:0px 4rpx 20rpx 0px rgba(232,45,90,0.35); 
+  border-radius:50rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size:30rpx;
+  color:rgba(255,255,255,1);
+  margin: 5rpx 99rpx;
+  text-align: center;
+}
+
+.sendBtn.hover {
+  opacity: 0.75;
+}

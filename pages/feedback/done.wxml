@@ -1,0 +1,8 @@
+<!--pages/feedback/done.wxml-->
+<view class="main">
+  <icon class="icon" type="success" size="100" />
+  <view class="title">反馈已提交</view>
+  <view class="sub-title">已将您的反馈内容提交至开发者</view>
+
+  <button class="close" type="primary" bindtap="onClose">关闭</button>
+</view>

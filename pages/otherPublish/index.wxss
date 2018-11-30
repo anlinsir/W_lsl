@@ -1,0 +1,71 @@
+/* pages/otherPublish/index.wxss */
+page{
+  background-color: #F5F5F5;
+}
+.top_header_img{
+  width:100%;
+  height:189rpx;
+  background-color: #fff;
+  position: relative;
+  z-index: 10;
+  
+
+}
+.back_white{
+  box-shadow: 0rpx 10rpx 50rpx 10rpx rgba(0,0,0,0.1) ;
+  width: 160rpx;
+  height: 160rpx;
+  background-color: #fff;
+  border-radius: 50%;
+  margin-top:130rpx;
+  margin-left:35rpx;
+  display: inline-block;
+}
+.back_white image{
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  margin-left:11rpx;
+  margin-top:11rpx;
+
+}
+
+.bottom_list{
+  margin-top: 168rpx;
+  margin-left: 26rpx;
+  
+}
+.bgi{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.line{
+  width:4rpx;
+  height:30rpx;
+  background:rgba(241,96,51,1);
+}
+.text{
+  font-size:30rpx;
+  font-family:PingFang-SC-Bold;
+  color:rgba(51,51,51,1);
+  line-height: 30rpx;
+  margin-left: 24rpx;
+}
+.positions{
+  margin-bottom: 100rpx;
+
+}
+.position{
+  margin-bottom: 24rpx;
+  transform: translateX(-15rpx);
+}
+
+
+
+
+
+
+
+

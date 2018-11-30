@@ -1,0 +1,66 @@
+<!--pages/city/index.wxml-->
+<view>
+
+<view class="current" hover-class="hover" bindtap="selectCurrent">
+  <view class="line">
+    <image src="/static/images/ico_pin.png"></image>
+    <text>当前选择</text>
+    <text class="city">{{ city && (city.c && city.c.title || city.b && city.b.title || city.a && city.a.title) || '定位中' }}</text>
+  </view>
+</view>
+
+<!-- 热门城市 -->
+<view class="hotlist" hidden="{{hotlist.length <= 0}}">
+  <view class="content">
+    <view class="title">
+      <!-- <image src="/static/images/pic_city.png"></image> -->
+      热门城市
+    </view>
+    <view
+      wx:for="{{hotlist}}"
+      class="item"
+      hover-class="hover"
+      data-index="{{index}}"
+      bindtap="onSelectHotlist">
+      {{ item.c && item.c.title ||  item.b && item.b.title || item.a && item.a.title}}
+    </view>
+  </view>
+</view>
+
+<view class="i-index">
+  <scroll-view scroll-y>
+    <block
+      wx:for="{{cities}}">
+      <view
+        data-index="0"
+        data-value="{{index}}"
+        hover-class="hover"
+        class="item {{cityIndex[0]==index?'active':''}}"
+        bindtap="onChangeCity">{{item.title}}</view>
+    </block>
+  </scroll-view>
+  <scroll-view scroll-y>
+    <block
+      wx:for="{{cities[cityIndex[0]].children}}">
+      <view
+        data-index="1"
+        data-value="{{index}}"
+        hover-class="hover"
+        class="item {{cityIndex[1]==index?'active':''}}"
+        bindtap="onChangeCity">{{item.title}}</view>
+    </block>
+  </scroll-view>
+  <scroll-view scroll-y>
+    <block
+    wx:for="{{cities[cityIndex[0]].children[cityIndex[1]].children}}">
+      <view
+        data-index="2"
+        data-value="{{index}}"
+        hover-class="hover"
+        class="item {{cityIndex[2]==index?'active':''}}"
+        bindtap="onChangeCity">{{item.title}}</view>
+    </block>
+  </scroll-view>
+</view>
+
+</view>

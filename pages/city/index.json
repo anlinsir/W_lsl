@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "i-index": "/iview/index/index",
+    "i-index-item": "/iview/index-item/index"
+  },
+
+  "backgroundTextStyle": "drak",
+  "enablePullDownRefresh": true,
+
+  "navigationBarTitleText": "城市选择",
+  "backgroundColor": "#F9F9F9"
+}

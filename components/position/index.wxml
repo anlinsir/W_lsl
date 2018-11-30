@@ -1,0 +1,73 @@
+<!--components/position/index.wxml-->
+<view class="my-class p-card {{status == 2?'invalid':''}}"
+  hover-class="hover">
+
+  <view class="cover"
+    hover-stop-propagation="true"
+    hidden="{{!showCover}}"
+    bind:touchmove="onRemove">
+    <view class="item" bind:tap="onDetailed" hover-stop-propagation="true">
+      <image
+        src="/static/images/ico_docs.png"
+        style="width:34rpx;height:38rpx;"></image>
+        <view>详细</view>
+    </view>
+    <view class="item" bind:tap="onSettop" hover-stop-propagation="true">
+      <image
+        src="/static/images/ico_top.png"
+        style="width:24rpx;height:40rpx;"></image>
+        <view>置顶</view>
+    </view>
+    <view class="item" bind:tap="onChecked" hover-stop-propagation="true">
+      <image
+        src="/static/images/ico_checked.png"
+        style="width:35rpx;height:38rpx;"></image>
+        <view>已出售</view>
+    </view>
+    <view class="item" bind:tap="onDelete" hover-stop-propagation="true">
+      <image
+        src="/static/images/ico_delete.png"
+        style="width:30rpx;height:38rpx;"></image>
+        <view>删除</view>
+    </view>
+  </view>
+
+  <view wx:if="{{status == 2}}"  style="position:absolute;width:153rpx;height:123rpx;right:0;bottom:0;z-index:10;">
+    <image style="width:100%;height:100%;" src="/static/images/pic_label.png"></image>
+  </view>
+
+
+  <view class="p-card-icon">
+    <image src="{{ icon }}"></image>
+  </view>
+  <view class="p-card-info">
+    <view class="p-card-info-line1">
+      <view style="float: left;">
+        <view class="p-card-info-title">{{ title || '无标题' }}</view>
+        <view class="p-card-info-title_top" wx:if="{{is_stick == 1}}">顶</view>
+        <!--  -->
+      </view>
+      
+    </view>
+    <view class="p-card-info-line2" style='margin-bottom:70rpx;'>
+      <view style="float: left;">
+        <text>{{ level?level:'' }}{{ position?' ' + position:'' }}</text>
+        <view class="line" style="margin: 0 10rpx;"></view>
+        <text>{{ city }}</text>
+      </view>
+      <view style="float: right;color:#fff;">
+      </view>
+    </view>
+
+    <view class="p-card-info-line2 p-card-info-line3">
+      <view style="float: left;">
+        <text wx:if="{{price != 0}}" style='font-size:26rpx; color:rgba(255,48,48,1);display:inline-block;vertical-align: middle;'>$</text>
+        <text style='font-size:32rpx;  color:rgba(255,48,48,1);  font-weight: 600;display:inline-block;vertical-align: middle;'>{{price == 0 ? '电议' : price}}</text>
+      </view>
+      <view style="float: right">
+        <text>{{ date }}</text>
+      </view>
+    </view>
+  </view>
+
+</view>

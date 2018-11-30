@@ -1,0 +1,247 @@
+/* pages/search-result/index.wxss */
+
+page {
+  background-color: #F5F5F5;
+}
+
+.position {
+  margin-top: 21rpx;
+}
+
+.search-bar .location-tool {
+  position:relative;z-index: 10;
+  padding-left:36rpx;
+  height:72rpx;
+  line-height:72rpx;  
+  font-size:28rpx;
+  color:rgba(100,111,138,1);
+  float: left;
+  width:244rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.search-bar .location-tool text {
+  border-right: 1rpx solid #eaeaea;
+  padding-right: 30rpx;
+}
+
+.search-bar .location-tool image {
+  width: 20rpx;
+  height: 28rpx;
+  margin-right: 6rpx;
+  position:relative;
+  top:4rpx;
+}
+
+.location-tool-hover {
+  color:rgb(197, 201, 214)!important;
+}
+
+.top {
+  background: #fff;
+  /* border-bottom: 1rpx solid #F5F6F7; */
+  z-index: 400;
+  position: fixed;
+  top:0;left: 0;right: 0;
+}
+
+.top.bottom-zero {
+  bottom: 0;
+  background: rgba(0,0,0,.1);
+  overflow: hidden;
+}
+
+.main {
+  margin-top: 150rpx;
+}
+
+.search-bar {
+  background: #fff;
+  margin:0 25rpx;
+  width:700rpx;
+  height:68rpx;
+  background:rgba(255,255,255,1);
+  border-radius:34rpx;
+  border: 1rpx solid #EEEEEE;
+  box-shadow:0px 5rpx 40rpx 0px rgba(31,53,90,0);
+}
+
+.search-bar .search-pen {
+  position:relative;z-index: 9;
+  left:0;
+  right:0;
+  height:68rpx;
+  font-size:28rpx;
+  color:#535A6A;
+  line-height:68rpx;
+}
+
+.search-bar .search-pen image {
+  width: 26rpx;
+  height: 26rpx;
+  margin: 0 11rpx;
+  position:relative;
+  float:left;
+  left:10rpx;
+  top:23rpx;
+}
+
+.search-pen-hover {
+  color:rgb(228, 230, 235)!important;
+}
+
+.search-pen input {
+position:absolute;
+top:0;
+bottom:0;
+right:0;
+height:68rpx;
+line-height:68rpx;
+width:52%;
+
+
+}
+
+.filter-bar {
+  position: relative;
+  background: #fff;
+}
+
+.filter-bar .tabs {
+  height: 92rpx;
+  border-bottom:1px solid #F5F6F7;
+}
+
+.filter-bar .tabs .item {
+  font-size:28rpx;
+  color:rgba(83,90,106,1);
+  text-align: center;
+  height: 82rpx;
+  line-height: 90rpx;
+  float: left;
+  width:50%;
+}
+
+.filter-bar .tabs .item text::after {
+  content:" ";
+  display:inline-block;
+  margin-left: 15rpx;
+  width:6px;
+  height:6px;
+  border-width:2rpx 2rpx 0 0;
+  border-color:#535A6A;    
+  border-style:solid;
+  transform:translateY(-50%) matrix(.71,.71,-.71,.71,0,0) rotate(90deg);
+  transition: all 0.4s
+}
+
+.filter-bar .tabs .item.active {
+  color: #207FFF;
+}
+
+.filter-bar .tabs text.blue {
+  color: #207FFF;
+}
+
+.filter-bar .tabs .item.active text::after{
+  border-color:#207FFF;
+  transform:rotate(-45deg);
+  transition: all 0.2s
+}
+
+.filter-bar .tabs .item text.blue::after {
+  border-color:#207FFF;
+}
+
+.filter-bar .tabs .item image {
+  width: 15rpx;
+  height: 8rpx;
+  margin-left: 20rpx;
+  position: relative;
+  top:-4rpx;
+}
+
+.filter-bar .panels {
+  border-bottom: 1rpx solid #EAEAEA;
+}
+
+.panel.position-pan {
+  height: 670rpx;
+  background: #FFF;
+}
+
+.panel.position-pan scroll-view {
+  width:33.33%;
+  float:left;
+  height: 670rpx;
+}
+
+.panel.position-pan scroll-view .item {
+  font-size:28rpx;
+  color:#535A6A;
+  height: 86rpx;
+  line-height: 86rpx;
+  text-align: center;
+}
+
+.panel.position-pan scroll-view .item.active {
+  color: #207FFF;
+}
+
+.panel.position-pan scroll-view .item.hover {
+  opacity: 0.75;
+}
+
+.panel.price-pan .list {
+  padding:0 25rpx;
+}
+
+.panel.price-pan {
+  height: 360rpx;
+  background: #FFF;
+}
+
+.panel.price-pan .list .item {
+  height:70rpx;
+  line-height: 70rpx;
+  width: 196rpx;
+  text-align: center;
+  font-size:28rpx;
+  color:rgba(83,90,106,1);
+  border-radius:35rpx;
+  border: 1rpx solid #E1E2E7;
+  float:left;
+  margin-top: 33rpx;
+  margin-right: 33rpx;
+}
+
+.panel.price-pan .list .item.active {
+  color:#207FFF;
+  border: 1rpx solid #207FFF;
+}
+
+.panel.price-pan .list .item:active {
+  opacity: 0.75;
+}
+
+.none-data {
+  position: absolute;
+  top: 400rpx;
+  left: 0;right: 0;
+  text-align: center;
+  transform: translateY(-50%);
+}
+
+.none-data .tips {
+  font-size:26rpx;
+  font-weight:400;
+  color:#aaa;
+}
+
+.none-data image {
+  width:300rpx;
+  transform: translateX(-10rpx);
+  height:205rpx;
+}

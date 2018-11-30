@@ -1,0 +1,14 @@
+{
+  "usingComponents": {
+    "i-button": "/iview/button/index",
+    "position": "/components/position/index",
+    "i-load-more": "/iview/load-more/index",
+    "i-message": "/iview/message/index"
+  },
+  "navigationBarTextStyle": "light",
+  "navigationBarBackgroundColor": "#F46C3D",
+  "navigationBarTitleText": "闲置二手",
+
+  "backgroundTextStyle": "drak",
+  "enablePullDownRefresh": true
+}

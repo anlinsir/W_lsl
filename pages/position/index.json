@@ -1,0 +1,14 @@
+{
+  "usingComponents": {
+    "i-row": "/iview/row/index",
+    "i-col": "/iview/col/index",
+    "i-rate": "/iview/rate/index",
+    "i-load-more": "/iview/load-more/index",
+    "i-tag": "/iview/tag/index",
+    "my-starts": "/components/starts/index",
+    "action-sheet": "/components/action-sheet/index",
+    "i-message": "/iview/message/index",
+    "i-divider": "/iview/divider/index"
+  },
+  "navigationBarTitleText": "宝贝详情"
+}

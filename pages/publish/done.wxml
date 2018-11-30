@@ -1,0 +1,18 @@
+<!--pages/publish/done.wxml-->
+<view>
+
+<view class="success">
+  <image src="/static/images/pic_sucess.png"></image>
+  <view class="success-text">您的宝贝已经发布成功了！</view>
+</view>
+
+<view
+  class="btn blue"
+  hover-class="hover"
+  bindtap="gotoPosition">继续发布</view>
+<view
+  class="btn white"
+  hover-class="hover"
+  bindtap="gotoIndex">返回首页</view>
+
+</view>

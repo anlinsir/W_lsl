@@ -1,0 +1,128 @@
+/* pages/city/index.wxss */
+
+page {
+  background-color: #FFF;
+}
+
+.current {
+  /* margin-top: 26rpx; */
+  height:140rpx;
+  background:rgba(255,255,255,1);
+  position: relative;z-index:5;
+}
+
+.current .line {
+  position: absolute;
+  left: 30rpx;right: 0;
+  height: 120rpx;
+  line-height: 120rpx;
+  font-size:30rpx;
+  color:rgba(100,111,138,1);
+}
+
+.current .line image {
+  position:relative;
+  width: 20rpx;
+  height: 28rpx;
+  margin-right: 10rpx;
+  top:4rpx;
+}
+
+.current .line .city {
+  font-size:30rpx;
+  margin-left: 19rpx;
+  color:rgba(241, 96, 51, 1);
+}
+
+.current.hover {
+  opacity: 0.8;
+  background-color: rgb(236, 236, 236);
+}
+
+.i-index {
+  background: #FFF;
+  height: 820rpx;
+}
+
+.i-index scroll-view {
+  width: 33.33%;
+  height: 100%;
+  float:left;
+  background: #fff;
+}
+
+.i-index scroll-view .item {
+  font-size:30rpx;
+  color:rgba(83,90,106,1);
+  padding: 20rpx 0;
+  text-align: center;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+ 
+}
+
+.i-index scroll-view .item.active {
+   color:rgba(241, 96, 51, 1);
+}
+
+.hotlist {
+  background: #FFF;
+  /* margin-top: 20rpx; */
+  /* padding:30rpx 0; */
+  height:250rpx;
+ 
+}
+
+.hotlist .title {
+  font-size:30rpx;
+  color:rgba(83,90,106,1);
+  overflow: hidden;
+  
+}
+
+.hotlist .title image {
+  position:relative;
+  width: 20rpx;
+  height: 28rpx;
+  margin-right: 10rpx;
+  top:4rpx;
+}
+
+.hotlist .content {
+  overflow:hidden; 
+  text-overflow:ellipsis;
+  display:-webkit-box; 
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  padding: 20rpx 25rpx;
+}
+
+.hotlist .content .item {
+  font-size:30rpx;
+  display: inline-block;
+  color: rgba(83,90,106,1);
+  width:220rpx;
+  margin-top: 10rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: center;
+  
+}
+
+.hotlist .content .item.hover {
+  opacity: 0.75;
+  height:50rpx;
+  line-height: 50rpx;
+  border:1px solid rgba(241,96,51,1);
+  border-radius:35rpx;
+}
+
+.i-index::before, .current::before, .hotlist::before {
+  content: ' ';
+  display: block;
+  width: 100%;
+  height: 20rpx;
+  background: #F9F9F9;
+}

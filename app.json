@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/bind/index",
+    "pages/index/index",
+    "pages/publish/index",
+    "pages/user/index",
+    "pages/city/index",
+    "pages/position/index",
+    "pages/search/index",
+    "pages/search-result/index",
+    "pages/feedback/index",
+    "pages/part/index",
+    
+    "pages/jgaccount/index",
+    "pages/otherPublish/index",
+    "pages/minepublish/index",
+    "pages/mineliked/index",
+    "pages/bind/ca",
+    "pages/bind/bind",
+    "pages/publish/done",
+    "pages/feedback/done"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#FCFCFC"
+  },
+  "tabBar": {
+    "color": "#B6BDC9",
+    "selectedColor": "#F16033",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "selectedIconPath": "/static/images/icon_tab_secondhand_pre.png",
+        "iconPath": "/static/images/icon_tab_secondhand.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "/static/images/icon_tab_mine_pre.png",
+        "iconPath": "/static/images/icon_tab_mine.png",
+        "pagePath": "pages/user/index",
+        "text": "我的"
+      }
+    ]
+  }
+}

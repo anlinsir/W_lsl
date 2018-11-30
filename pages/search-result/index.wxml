@@ -1,0 +1,129 @@
+<!--pages/search-result/index.wxml-->
+<view>
+<i-message id="message" />
+
+  <view class="top {{filterIndex==-1?'':'bottom-zero'}}">
+
+    <view style="width:100%;background:#F46C3D;padding-bottom:30rpx;padding-top:20rpx;margin-bottom:50rp">
+    <!-- 搜索框 -->
+    <view class="search-bar">
+      <view class="location-tool" hover-class="location-tool-hover" bindtap="gotoCity">
+        <image src="/static/images/ico_pin.png"></image>
+        <text>{{ city.c && city.c.title || city.b && city.b.title || city.a && city.a.title || '定位中' }}</text>
+      </view>
+      <view class="search-pen">
+        <image src="/static/images/ico_search.png"></image>
+        <input
+          placeholder="输入关键字"
+          confirm-type="search"
+          value="{{ keyword }}"
+          bindconfirm="tappedSearch"></input>
+      </view>
+    </view>
+    </view>
+
+    <!-- 筛选 -->
+    <!-- <view class="filter-bar">
+      <view class="tabs">
+        <view
+          data-index="0"
+          bindtap="onChangeFilterBar"
+          class="item {{filterIndex==0?'active':''}}">
+          <text wx:if="{{positionIndexs[0] == 0}}">职位</text>
+          <text class="blue" wx:else>{{tabPositionText}}</text>
+        </view>
+        <view
+          data-index="1"
+          bindtap="onChangeFilterBar"
+          class="item {{filterIndex==1?'active':''}}">
+          <text wx:if="{{filterPriceIndex == 0}}">薪资</text>
+          <text class="blue" wx:else>{{filterPrices[filterPriceIndex].value}}</text>
+        </view>
+      </view>
+
+      <view
+        class="panels"
+        wx:if="{{filterIndex != -1}}"
+        data-index="-1">
+        <view
+          class="panel position-pan"
+          hidden="{{filterIndex!=0}}">
+          <scroll-view scroll-y>
+            <block
+              wx:for="{{category}}">
+              <view
+                data-index="0"
+                data-value="{{index}}"
+                hover-class="hover"
+                class="item {{positionIndexs[0]==index?'active':''}}"
+                bindtap="onChangeFilterPosition">{{item.title}}</view>
+            </block>
+          </scroll-view>
+          <scroll-view scroll-y>
+            <block
+              wx:for="{{category[positionIndexs[0]].children}}">
+              <view
+                data-index="1"
+                data-value="{{index}}"
+                hover-class="hover"
+                class="item {{positionIndexs[1]==index?'active':''}}"
+                bindtap="onChangeFilterPosition">{{item.title}}</view>
+            </block>
+          </scroll-view>
+          <scroll-view scroll-y>
+            <block
+            wx:for="{{category[positionIndexs[0]].children[positionIndexs[1]].children}}">
+              <view
+                data-index="2"
+                data-value="{{index}}"
+                hover-class="hover"
+                class="item {{positionIndexs[2]==index?'active':''}}"
+                bindtap="onChangeFilterPosition">{{item.title}}</view>
+            </block>
+          </scroll-view>
+        </view>
+        <view
+          class="panel price-pan"
+          hidden="{{filterIndex!=1}}">
+          <view class="list">
+            <view
+              wx:for="{{filterPrices}}"
+              class="item {{filterPriceIndex==index?'active':''}}"
+              bindtap="onChangefilterPrice"
+              data-index="{{index}}">{{item.value}}</view>
+          </view>
+        </view>
+      </view>
+    </view> -->
+  </view>
+
+  <view class="main">
+    <view class="result">
+        <position
+          wx:for="{{items}}"
+          my-class="position"
+          data-id="{{item.id}}"
+          title="{{item.title}}"
+          price="{{item.price}}"
+          city="{{item.cc || item.cb}}"
+          level="{{item.pa || null}}"
+          position="{{item.pc}}"
+          top="{{item.stick==1}}"
+          invalid="{{item.status==2}}"
+          isTell="{{item.price==0}}"
+          date="{{item.create_at}}"
+          icon="{{item.img.image}}"
+          bindtap="gotoPosition" />
+    </view>
+
+  </view>
+
+  <view hidden="{{!isLoad && items.length==0}}">
+    <i-load-more tip="{{ items.length>0&&!isLoad?'暂无更多二手信息':'' }}" loading="{{ isLoad }}" />      
+  </view>
+
+  <view class="none-data" hidden="{{ isLoad || (!isLoad && items.length>0) }}">
+    <image style='width:189rpx;height:161rpx;transform:translateX(-15rpx);' src="/static/images/pic_no_search_results.png"></image>
+    <view class="tips">暂无搜索结果！</view>
+  </view>
+</view>

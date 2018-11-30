@@ -1,0 +1,208 @@
+<!--pages/publish/index.wxml-->
+<view>
+<!-- 提示 -->
+<i-message id="message" />
+
+<view class="info">
+
+  <!-- 标题 -->
+  <view class="title">
+    <input
+      placeholder="标题: 宝贝名称以及品牌~"
+      bindinput="inputTitle"
+      value="{{title}}"
+      maxlength="17"
+      focus="{{true}}"></input>
+  </view>
+
+  <!-- 内容 -->
+  <view class="content">
+    <textarea auto-height='true' maxlength="-1" placeholder="描述一下宝贝详情以及转手的原因~" bindinput="inputContent" value="{{content}}"></textarea>
+  </view>
+  <!-- 分享action -->
+  
+
+ <!-- <video  src='http://1255799225.vod2.myqcloud.com/cf577a2evodgzp1255799225/ca625e725285890782511378347/QATkwy3GL2MA.mp4'></video> -->
+
+  <!-- 图片 -->
+  <view class="photos">
+    <!-- 列表 -->
+    <view wx:if="{{!imagesUrls[0]}}" class="item add" hover-class="hover" bindtap="picOpen" data-main="1">
+        <image src="/static/images/btn_addpic.png"></image>
+         <view class="tag" >
+          主图
+        </view> 
+    </view>
+     <view wx:if="{{imagesUrls[0]}}" class="item">
+          <image class="src" src="{{imagesUrls[0].url}}"/>
+          <view class="del" style="z-index:60;" data-index="{{0}}" bindtap="onRemoveImage">
+              <image src="/static/images/icon_release_delete.png"></image>
+          </view>
+          <view class="tag" >
+          主图
+        </view> 
+      </view>
+
+    <block wx:for="{{imagesUrls}}" wx:if="{{index > 0}}">
+      <view
+        class="item"
+        hover-class="hover"
+        bindtap="playVideo"
+        data-path="{{item}}"
+        
+        data-index="{{index}}">
+        <image wx:if="{{item.type==1}}" class="src" src="{{item.url}}"></image>
+        <image wx:if="{{item.type==2&&(!play||videoIndex!=index)}}" class="src" src="{{imagesUrls[0].url}}"></image>
+        <image  wx:if="{{item.type==2&&(!play||videoIndex!=index)}}" class="src" style="position:absolute;width:50%;height:50%;top:35rpx;right:35rpx"  src="/static/images/icon_video.png"></image>
+        <video  wx:if="{{item.type==2&&play&&videoIndex==index}}" bindended="stopPlay" class="src" src='{{item.video}}'    objectFit="fill"></video>
+        <!-- bindended="stopPlay src="{{item.video}}"" -->
+       
+        <view
+          class="del"
+          bindtap="onRemoveImage"
+          data-index="{{index}}">
+          <image src="/static/images/icon_release_delete.png"></image>
+        </view>
+      </view>
+    </block>
+
+    <!-- 添加 -->
+    <view
+      wx:if="{{imagesUrls.length<imagesMaxNumber  && imagesUrls[0].url}}"
+      class="item add"
+      hover-class="hover"
+      bindtap="onChooseImage">
+      <image src="/static/images/btn_addpic.png"></image>
+    </view>
+  </view>
+
+</view>
+
+<view class="options">
+  <view class="item">
+    <view class="title">价格电议</view>
+    <view class="footer">
+      <i-switch value="{{isTel}}" bind:change="onChangeisTel" slot="footer"></i-switch>
+      </view>
+  </view>
+
+  <view class="item" hidden="{{isTel}}">
+    <view class="title">价格</view>
+    <view class="footer">
+      <input class="item-input" bindinput="inputPrice" type="digit" placeholder="$0.00" style="width:140rpx;"></input>
+    </view>
+  </view>
+
+  <view class="item" style='display:flex;justify-content: space-between;' bindtap='partsStateChange'>
+    <view class="title">分类</view>
+    <view class="title">
+      <text>{{ partsName.name ||  partsName}}</text>
+      <image style="width:16rpx;height:25rpx;margin:0 10rpx;" src="/static/images/icon_choose_classify.png"></image>
+
+
+    </view>
+  </view>
+
+
+
+  <view class="item" hover-class="hover">
+    <view class="title">地址</view>
+    <view class="footer">
+      <text wx:if="{{citys.length <= 0}}">加载中...</text>
+      <picker
+        wx:if="{{citys.length > 0}}"
+        bindchange="onChangeRegin"
+        bindcolumnchange="onColumnChangeRegin"
+        mode="multiSelector"
+        value="{{region}}"
+        range="{{regionArray}}">
+        <view class="tui-picker-detail">
+          {{regionArray[0][region[0]]}},
+          {{regionArray[1][region[1]]}},
+          {{regionArray[2][region[2]]}}
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="item inline">
+    <view class="title">手机号</view>
+    <view class="attach">
+      <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">点击获取</button>
+    </view>
+    <view class="footer">
+      <input bindinput="inputPhone" class="item-input" value="{{phone}}" placeholder="手机号码" style="width:200rpx;"></input>
+    </view>
+  </view>
+</view>
+
+<view class="options">
+
+  <view class="item">
+    <view class="title" bindtap="onTipsTop">置顶
+    <image
+        src="/static/images/icon_doubt.png"
+        style="height:30rpx;width:30rpx;    transform: translateY(5rpx);" />
+    </view>
+    <view class="footer">
+      <i-switch value="{{top}}" bind:change="onChangeTop" slot="footer"></i-switch>
+      </view>
+  </view>
+
+  <view class="item" wx:if="{{top}}">
+    <view class="title">置顶天数
+      <text class="day-price old">￥10/天</text>
+      <text class="day-price">￥5/天</text>
+    </view>
+    <view class="footer">
+      <i-input-number value="{{topDay}}" min="1" max="100" bindchange="handleChangeTopDay" />
+    </view>
+  </view>
+
+</view>
+
+<form bindsubmit="onDone" report-submit="true">
+<view style="height:140rpx;">
+  <button formType="submit" class="done" hover-class="hover">发布</button>
+</view>
+</form>
+
+</view>
+
+
+<action-sheet i-class="share" visible="{{ picbox }}" bind:cancel="picCancel">
+      <view slot="header" style="padding: 20rpx;height:246rpx;position: relative;">
+          <view open-type="share" class="share-item" bindtap='picOpen'>
+            <view hover-class="hover">
+            <button  plain="true">
+              <image style='width:120rpx;height:120rpx;' src="/static/images/icon_choose_album.png"></image>
+            </button>
+            </view>
+            <view><text>图片或拍照</text></view>
+          </view>
+
+          <view class="share-item" hover-class="share-item-hover">
+            <view hover-class="hover">
+              <image
+                style='width:120rpx;height:120rpx;'
+                bindtap="onChooseVideo"
+                src="/static/images/icon_choose_video.png"></image>
+            </view>
+        
+
+            <view><text>录像</text></view>
+          </view>
+      </view>
+  </action-sheet>
+
+
+  <scroll-view scroll-y class="select" hidden="{{!partsShow}}">
+        <view class='scrollTop'>
+          <image bindtap="closeSelect" class="scrollTop_img" src="/static/images/icon_classification_delete.png"></image>
+          <text>选择分类</text>
+        </view>
+        <view wx:for="{{parts.data}}" class="select-content" data-id="{{item.id}}" data-name="{{item.name}}" data-index="{{index}}" bindtap='onChangeParts' >
+            <!-- <image class="flag" src="{{item.id}}"/> -->
+            <text>{{item.name}}</text>
+        </view>
+    </scroll-view>

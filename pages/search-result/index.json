@@ -1,0 +1,14 @@
+{
+  "navigationBarBackgroundColor": "#F46C3D",
+  "navigationBarTitleText": "闲置二手",
+
+  "usingComponents": {
+    "i-button": "/iview/button/index",
+    "position": "/components/position/index",
+    "i-load-more": "/iview/load-more/index",
+    "my-search-filter": "/components/search-filter/index",
+    "i-message": "/iview/message/index"
+  },
+
+  "enablePullDownRefresh": true
+}

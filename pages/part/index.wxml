@@ -1,0 +1,30 @@
+
+  <view class="main">
+    <view class="result">
+        <position
+          wx:for="{{partList}}"
+          my-class="position"
+          data-id="{{item.id}}"
+          title="{{item.title}}"
+          price="{{item.price}}"
+          city="{{item.cc || item.cb}}"
+          level="{{item.pa || null}}"
+          position="{{item.pc}}"
+          top="{{item.stick==1}}"
+          invalid="{{item.status==2}}"
+          isTell="{{item.price==0}}"
+          date="{{item.created_at}}"
+          is_stick="{{item.is_stick}}"
+          icon="{{item.img.image}}"
+          bindtap="gotoPosition" />
+    </view>
+
+     <view hidden="{{!isLoad && partList.length==0}}">
+      <i-load-more tip="{{ partList.length>0&&!isLoad?'暂无更多二手信息':'加载中...' }}" loading="{{ isLoad }}" />      
+    </view>
+    <view class='noneResult' wx:if='{{!partList.length && !isLoad}}'>
+      <image src='/static/images/pic_no_search_results.png'></image>
+      <text>暂无搜索结果</text>
+    </view>
+
+  </view>

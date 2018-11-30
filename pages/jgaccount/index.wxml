@@ -1,0 +1,44 @@
+<!--pages/jgaccount/index.wxml-->
+<view class='Warp' hidden='{{setPass}}'>
+    <view class='title'>
+      绑定简购账号
+    </view>
+
+    <view class='from' style='height:100rpx;'>
+      <view bindtap='showChoose' class='input' style='width:140rpx;float:left;margin-right:25rpx;text-align:center;line-height:76rpx;'>+86</view>
+      <view  class='absolute' hidden='{{!Number_type_choose_show}}'>
+        <scroll-view scroll-y>
+            <block
+              wx:for="{{arr}}">
+              <view class='choose_Number_type'
+              hover-class="choose_Number_type_hover"
+                >{{item}}</view>
+            </block>
+          </scroll-view>
+      </view>
+
+      <input placeholder='请输入您注册的简购手机号' style='width:475rpx;float:left;'></input>
+    </view>
+
+    <view class='from' style='position:relative'>
+      <input placeholder='请输入收到的验证码' style='width:100%;'></input>
+      <view class='getCode'>获取验证码</view>
+    </view>
+
+    <view class='from bottom'>
+      <button bindtap='toSetPass'>下一步</button>
+    </view>
+</view>
+
+<view class='Warp' hidden='{{!setPass}}'>
+   <view class='title'>
+      设置密码
+    </view>
+  <view class='from' style='position:relative'>
+      <input placeholder='请设置密码' style='width:100%;'></input>
+    </view>
+
+     <view class='from bottom'>
+      <button bindtap=''>确认绑定</button>
+    </view>
+</view>

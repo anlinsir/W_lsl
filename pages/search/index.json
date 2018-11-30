@@ -1,0 +1,11 @@
+{
+  "navigationBarTextStyle": "black",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "闲置二手",
+
+  "backgroundColor": "#2A86ED",
+
+  "usingComponents": {
+    "i-icon": "/iview/icon/index"
+  }
+}

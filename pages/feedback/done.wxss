@@ -1,0 +1,27 @@
+/* pages/feedback/done.wxss */
+
+page {
+  background: #fcfcfc;
+}
+
+.main {
+  text-align: center;
+}
+
+.icon {
+  margin-top: 100rpx; 
+}
+
+.title {
+  font-size:38rpx;
+  margin:40rpx 0;
+}
+
+.sub-title {
+  font-size:30rpx;
+  color:#999;
+}
+
+.close {
+  margin: 40rpx 40rpx;
+}

@@ -1,0 +1,29 @@
+<!--index.wxml-->
+<view>
+
+    <i-message id="message"/>
+    <view class="title">
+        输入手机号码
+    </view>
+
+    <view class="input-bar">
+        <view class='sanjiao'></view>
+        <view style="min-width:84rpx;text-align:center;" class="code" bindtap="onChangeShow">
+            +{{countries[0]['country_code']}}
+            <!-- <image src="/static/images/icon_down.png"/> -->
+        </view>
+        <text class="lines">|</text>
+        <input placeholder="000-000-0000" placeholder-style="font-size:30rpx;font-weight:500;color:rgba(187,187,187,1);" type="text" maxlength="{{maxLen}}" confirm-type="done" bindinput="onChangeTel" bindconfirm="goToBind" value="{{showTel}}"/>
+        <image class="next" src="/static/images/icon_nextstep.png" bindtap="goToBind"/>
+    </view>
+
+    <scroll-view scroll-y class="select" hidden="{{!isShow}}">
+        <view class="select-title" bindtap="onChangeShow">
+            <view class="close"></view>
+        </view>
+        <view wx:for="{{countries}}" class="select-content" data-index="{{index}}" bindtap="onChangeCountry">
+            <image class="flag" src="{{item.flag}}"/>
+            <text>{{item.name}}</text>
+        </view>
+    </scroll-view>
+</view>

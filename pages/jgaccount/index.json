@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "i-button": "/iview/button/index",
+    "position": "/components/position/index",
+    "i-load-more": "/iview/load-more/index",
+    "i-message": "/iview/message/index"
+  },
+  "navigationBarTextStyle": "black",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "绑定",
+  "backgroundTextStyle": "drak"
+}

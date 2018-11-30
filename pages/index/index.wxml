@@ -1,0 +1,120 @@
+<!--index.wxml-->
+<view>
+<!-- <view bindtap='tobg'>dsfsfcsa</view> -->
+<i-message id="message" />
+
+<view
+  class="position-add-btn"
+  hover-class="hover"
+  bindtap="gotoPublish">
+  <image src="/static/images/icon_suspension_release.png"></image>
+</view>
+
+<view class="top">
+  <view class="search-bar">
+    <view class="location-tool" hover-class="location-tool-hover" bindtap="gotoCity">
+      <image src="/static/images/ico_pin.png"></image>
+      <text>{{ city && (city.c && city.c.title || city.b && city.b.title || city.a && city.a.title) || '定位中' }}</text>
+    </view>
+    <!-- <view class="search-line"></view> -->
+    <view class="search-pen" hover-class="search-pen-hover" bindtap="gotoSearch">
+      <image src="/static/images/ico_search.png"></image>
+      <text>搜索标题或关键词</text>
+    </view>
+  </view>
+  <!-- <view class='choose_type' bindtap="showType">
+    <view class='search_choose_Type'>
+      <text class='type_text'>{{einsAus}}</text>
+      <text class='type_text'>{{zweiAus}}</text>
+      <text class='type_text'>{{dreiAus}}</text>
+    </view>
+    <view class='choose_type_img'>
+      <text>xx</text>
+    </view>
+  </view> -->
+  <view class='acht_part'>
+    <block wx:for="{{parts}}"> 
+    <view data-name="{{item.name}}" data-index="{{index}}" bindtap="getPartPage" >
+        <view> <image style='width:80rpx;height:80rpx;' src="{{item.icon || '/static/images/icon_household_appliances.png'}}"></image></view>
+        <text>{{item.name}}</text>
+    </view>
+    </block>
+   
+    
+  </view>
+
+</view>
+  
+<view hidden="{{!choose_type_show}}"  class="i-index">
+  <scroll-view scroll-y>
+    <block
+      wx:for="{{cities}}">
+      <view
+        data-index="0"
+        data-value="{{index}}"
+        data-text="{{item.title}}"
+        hover-class="hover"
+        class="item {{cityIndex[0]==index?'active':''}}"
+        bindtap="onChangeCity">{{item.title}}</view>
+    </block>
+  </scroll-view>
+  <scroll-view scroll-y>
+    <block
+      wx:for="{{cities[cityIndex[0]].children}}">
+      <view
+        data-index="1"
+        data-value="{{index}}"
+        data-text="{{item.title}}"
+        hover-class="hover"
+        class="item {{cityIndex[1]==index?'active':''}}"
+        bindtap="onChangeCity">{{item.title}}</view>
+    </block>
+  </scroll-view>
+  <scroll-view scroll-y>
+    <block
+    wx:for="{{cities[cityIndex[0]].children[cityIndex[1]].children}}">
+      <view
+        data-index="2"
+        data-text="{{item.title}}"
+        data-value="{{index}}"
+        hover-class="hover"
+        class="item {{cityIndex[2]==index?'active':''}}"
+        bindtap="onChangeCity">{{item.title}}</view>
+    </block>
+  </scroll-view>
+</view>
+
+
+
+  <view class="positions">
+    <position
+      wx:for="{{items}}"
+      my-class="position"
+      data-id="{{item.id}}"
+      title="{{item.title}}"
+      price="{{item.price}}"
+      city="{{item.cc || item.cb}}"
+      level="{{item.pa || null}}"
+      position="{{item.pc}}"
+      top="{{item.stick==1}}"
+      invalid="{{item.status==2}}"
+      isTell="{{item.price==0}}"
+      status="{{item.status}}"
+      is_stick="{{item.is_stick}}"
+      
+      date="{{item.created_at}}"
+      icon="{{item.img.image}}"
+      bindtap="gotoPosition" />
+
+  </view>
+
+  <view hidden="{{!isLoad && items.length==0}}">
+    <i-load-more tip="{{ items.length>0&&!isLoad?'暂无更多二手信息':'' }}" loading="{{ isLoad }}" />      
+  </view>
+
+  <view class="none-data" hidden="{{ isLoad || (!isLoad && items.length>0) }}">
+     <image style='width:189rpx;height:161rpx;transform:translateX(-15rpx);' src="/static/images/pic_no_search_results.png"></image>
+    <view class="tips">暂无数据</view>
+  </view>
+
+</view>

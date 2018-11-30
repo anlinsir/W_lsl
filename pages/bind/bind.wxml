@@ -1,0 +1,25 @@
+<!--index.wxml-->
+<view>
+
+    <i-message id="message"/>
+    <view>
+
+        <i-message id="message"/>
+        <view class="title">
+            验证码已发至{{tel}}
+        </view>
+
+        <view class="input-bar">
+            <input placeholder="请输入验证码"
+                   placeholder-style="font-size:30rpx;font-family:PingFang-SC-Medium;font-weight:500;color:rgba(187,187,187,1);"
+                   type="number" maxlength="{{6}}" confirm-type="done" bindinput="onChangeCode"
+                   value="{{auth_code}}"/>
+            <veiw class="time sended" wx:if="{{time>0}}">{{time}}s</veiw>
+            <veiw class="time send" wx:if="{{time==0}}" bindtap="getCode">重新获取</veiw>
+        </view>
+        <view class="error" hidden="{{!errorMsg}}">
+            <image src="/static/images/pic_remind.png"></image>
+            验证码错误
+        </view>
+    </view>
+</view>

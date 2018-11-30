@@ -1,0 +1,29 @@
+/* pages/part/index.wxss */
+page{
+  background-color: #F5F5F5;
+}
+.main {
+  margin-top:50rpx;
+}
+.position{
+  margin-bottom: 30rpx;
+}
+.noneResult{
+  width: 100%;
+  font-size: 30rpx;
+  text-align: center;
+  margin-top: 213rpx;
+}
+
+.noneResult image{
+  width:255rpx;
+  transform: translateX(-10rpx);
+  height:205rpx;
+}
+.noneResult text{
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(153,153,153,1);
+  line-height:44rpx;
+  display: block;
+}

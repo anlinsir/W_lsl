@@ -1,0 +1,152 @@
+<!--pages/position/index.wxml-->
+<!-- 全局消息 -->
+<i-message id="message" />
+        <!--视频播放弹出框-->
+<video wx:if="{{play}}" src="{{video}}" style="position:fixed;top:0;width:100%;height:563rpx;z-index:30" objectFit="fill"
+       autoplay>
+<cover-image wx:if="{{play}}" src="/static/images/btn_deletepic.png"
+             style="position:fixed;top:10rpx;right:10rpx;width:50rpx;height:50rpx;z-index:2"
+             bindtap="stopPlay"></cover-image>
+</video>
+
+<view style="padding-bottom:150rpx;">
+
+<!-- 底部工具栏 -->
+<view class="bottom-tools">
+  <view class="item" hover-class="hover" bindtap="onShare">
+    <image src="/static/images/icon_footer_share.png" style="width:33rpx;height:38rpx;" />
+    <view><text style="color:rgba(241,96,51,1);">分享</text></view>
+  </view>
+  <view class="item" hover-class="hover" bindtap="changeLike">
+    <image wx:if="{{ item.collect==1 }}" src="/static/images/icon_footer_collection_pre.png" style="width:40rpx;height:38rpx;" />
+    <image wx:else src="/static/images/icon_footer_collection.png" style="width:40rpx;height:38rpx;" />
+    <view wx:if="{{ item.collect==1 }}"><text>已收藏</text></view>
+    <view wx:else><text>收藏</text></view>
+  </view>
+  <!-- <view class="item" hover-class="hover" bindtap="toSms">
+    <image src="/static/images/btn_msg.png" style="width:40rpx;height:32rpx;margin-top:6rpx;" />
+    <view><text>短信</text></view>
+  </view> -->
+  <view class="contact" hover-class="hover" bindtap="toCall"><text>立即联系</text></view>
+</view>
+
+<!-- 分享action -->
+<action-sheet i-class="share" visible="{{ sharebox }}" bind:cancel="shareCancel">
+    <view slot="header" style="padding: 20rpx;height:246rpx;position: relative;">
+        <view open-type="share" class="share-item">
+          <view hover-class="hover">
+          <button open-type="share" plain="true">
+            <image src="/static/images/btn_wechat.png"></image>
+          </button>
+          </view>
+          <view><text>转发给好友或群聊</text></view>
+        </view>
+
+        <view class="share-item" hover-class="share-item-hover">
+          <view hover-class="hover">
+            <image
+              bindtap="onCreateLongImage"
+              src="/static/images/btn_picture.png"></image>
+          </view>
+          <view><text>生成长图</text></view>
+        </view>
+    </view>
+</action-sheet>
+
+<!-- 物品信息 -->
+<view class='ge_info' wx:for="{{[item]}}">
+  <!-- <image src="{{item.images[0].image || '/static/images/btn_login_pressed.png'}}">
+  </image> -->
+  <!-- <swiper style='height:563rpx'  indicator-dots="true" autoplay="true" indicator-active-color="#2DC855"
+            indicator-color="RGBA(176, 227, 192, 1)" current="{{imageIndex}}">
+        <block wx:for="{{item.images}}">
+            <swiper-item >
+               <image wx:if="{{item.type==2}}" src="/static/images/icon_video.png"
+                       style="position:fixed;top:160rpx;left:310rpx;width:150rpx;height:150rpx" bindtap="playVideo"
+                       data-index="{{index}}"
+                       data-video="{{item.video}}"></image>
+                <image  style="width:100%;height:563rpx;" wx:if="{{item.type==1}}" src="{{item.image}}" class="slide-image" width="" height="150"/>
+                <image mode="center" wx:if="{{item.type==2 }}" src="{{images}}" class="slide-image" style="width:100%;height:563rpx;" height="150"/>
+            </swiper-item>
+        </block>
+    </swiper> -->
+  <view class='ge_mann_info'>
+    
+    <view class='top'>
+      <image  src='/static/images/pc_mine_back.png' class='bgi'></image>
+       <view  class='top_img'>
+        <image src="{{ item.account.thumb || '/static/images/btn_login_pressed.png'}}"></image>
+       </view>
+       <view class='mid_Text'>
+          <view class='name'>
+            <text>{{item.account.nickname}}</text>
+            <text >
+              <text wx:if="item.price > 0" class='priceSb'> </text>
+              <text class='price'> {{item.price == 0 ? '电议' : '$' +  item.price}}</text>
+            </text>
+            
+          </view>
+          <view class='other'>
+            <!-- <image src='/static/images/pic_city.png'></image> -->
+            <!-- <text class='lb'>{{item.pa}}</text> -->
+            
+            <text>{{item.cc || item.cb || item.ca}}</text> 
+          </view>
+       </view>
+    </view>
+    <view class='bottom'>
+      <text>{{item.created_at}}更新</text>
+      <text>浏览{{item.view}}</text>
+    </view>
+  </view>
+</view>
+
+<!-- 详情描述  -->
+<view class='detaliDescription'>
+  <view class='title'>
+    宝贝详情
+  </view>
+
+  <view>
+      <view class='p'>
+       {{item.content}}
+
+
+      </view>
+      
+
+      <view class='imaGroup'>
+          <view style="position:relative;width:100%;height:480rpx;margin-bottom:10rpx;" wx:if="{{itemName.type==2}}" wx:for-item="itemName"  wx:for="{{item.images}}">
+            <image  src="{{item.images[0].image}}"
+                    bindtap="playVideo"
+                    data-index="{{index}}"
+                    data-video="{{itemName.video}}" mode="center"></image>
+            <image bindtap="playVideo"  data-index="{{index}}" data-video="{{itemName.video}}" src="/static/images/icon_video.png" style="position:absolute;top:33%;left:38%;width:160rpx;height:160rpx;">
+            </image>
+          </view>            
+        <image  wx:if="{{item.type==1}}"  mode="center" wx:for="{{item.images}}" src="{{ item.image || '/static/images/pic_city.png'}}"></image>
+      </view>
+    </view>
+
+</view>
+
+<!-- 发布者数据  -->
+<view wx:if="item" bindtap='TaPublish' class='user_old_data'  wx:for="{{[item]}}">
+  <image style="border-radius:50%;" src="{{item.account.thumb || '/static/images/btn_login_pressed.png'}}"></image>
+  <text>他在简购二手中发布了{{item.account.release_count}}条信息</text>
+  <image style="width:13rpx;height:24rpx;position:absolute;right:27rpx;top:52rpx;" src="/static/images/icon_choose_classify.png"></image>
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</view>

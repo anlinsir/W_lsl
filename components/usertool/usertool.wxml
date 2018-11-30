@@ -1,0 +1,9 @@
+<!--components/usertool/usertool.wxml-->
+<view class="my-tools-box" hover-class="my-tools-box-hover">
+  <view class="tools-info">
+    <view class="tools-icon">
+      <image  src="{{ icon }}"></image>
+    </view>
+    <view class="tools-name"><text>{{ name }}</text></view>
+  </view>
+</view>

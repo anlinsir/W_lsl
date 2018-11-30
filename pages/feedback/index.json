@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "i-message": "/iview/message/index"
+  },
+
+  "navigationBarTitleText": "意见反馈"
+}

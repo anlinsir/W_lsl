@@ -1,0 +1,35 @@
+<!--pages/mineliked/index.wxml-->
+<view>
+<!-- 全局消息 -->
+<i-message id="message" />
+
+  <view class="list">
+    <position
+      wx:for="{{items}}"
+      my-class="position"
+      data-id="{{item.id}}"
+      title="{{item.title}}"
+      price="{{item.price}}"
+      city="{{item.cc || item.cb}}"
+      level="{{item.pb || null}}"
+      position="{{item.pa}}"
+      top="{{item.stick==1}}"
+      invalid="{{item.status==2}}"
+      isTell="{{item.price==0}}"
+      date="{{item.created_at}}"
+      status="{{item.status}}"
+      is_stick="{{item.is_stick}}"
+      icon="{{item.img.image}}"
+      bindtap="onDetailed" />
+  </view>
+
+  <view hidden="{{!items.length}}">
+    <i-load-more tip="{{ items.length>0&&!isLoad?'暂无更多信息':'' }}" loading="{{ isLoad }}" />      
+  </view>
+  <!-- hidden="{{ isLoad || (!isLoad && items.length>0) }}" -->
+  <view wx:if="{{!items.length && !isLoad}}" class="none-data" >
+    <image src="/static/images/pic_nocollection2.png"></image>
+    <view class="tips">你还没有收藏任何宝贝！</view>
+  </view>
+
+</view>

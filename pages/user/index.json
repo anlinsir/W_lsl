@@ -1,0 +1,14 @@
+{
+  "usingComponents": {
+    "i-row": "/iview/row/index",
+    "i-col": "/iview/col/index",
+    "usertool": "/components/usertool/usertool",
+
+    "i-message": "/iview/message/index"
+  },
+  "navigationBarBackgroundColor": "#F46C3D",
+  "navigationBarTextStyle": "#fff",
+  "navigationBarTitleText": "我的",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "light"
+}

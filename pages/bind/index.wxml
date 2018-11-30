@@ -1,0 +1,32 @@
+<!--index.wxml-->
+<view>
+
+    <i-message id="message"/>
+    <view class="title">绑定简购生活账号</view>
+    <view class="tips">请先查看定位是否准确，并开始绑定账号</view>
+    <view class="country">
+        <view class="box" bindtap="onChangeShow">
+            <image class="flag" src="{{countries[0]['flag']}}"/>
+            <text class="name">{{countries[0]['name']}}</text>
+            <text class='sanjiao'></text>
+        </view>
+        <view class="address">
+            <image src="/static/images/pic_adress.png"/>
+        </view>
+    </view>
+    <image class="map" src="/static/images/pic_bg_map.png"/>
+
+    <view class="confirm-btn" bindtap="goToCA">
+        开始绑定账号
+    </view>
+
+    <scroll-view scroll-y class="select" hidden="{{!isShow}}">
+        <view class="select-title" bindtap="onChangeShow">
+            <view class="close"></view>
+        </view>
+        <view wx:for="{{countries}}" class="select-content" data-index="{{index}}" bindtap="onChangeCountry">
+            <image class="flag" src="{{item.flag}}"/>
+            <text>{{item.name}}</text>
+        </view>
+    </scroll-view>
+</view>

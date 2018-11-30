@@ -1,0 +1,45 @@
+/* components/usertool/usertool.wxss */
+
+.my-tools-box {
+  width:320rpx;
+  height:258rpx;
+  margin: 0 17.5rpx;
+  background:rgba(255,255,255,1);
+  border-radius:20rpx;
+  box-shadow:0rpx 5rpx 20rpx 0rpx rgba(179,196,211,0.27);
+  position: relative;
+}
+
+.my-tools-box-hover {
+  opacity: 0.75;
+}
+
+.tools-info {
+  position: absolute;
+  top: 55rpx;
+  left: 0;
+  right: 0;
+}
+
+.tools-icon {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100rpx;
+  height: 100rpx;
+  text-align: center;
+}
+
+.tools-icon image {
+  width: 130rpx;
+  height: 130rpx;
+  display: inline-block;
+  transform: translateX(-12rpx)
+}
+
+.tools-name {
+  font-size:30rpx;
+  color:rgba(83,90,106,1);
+  line-height:44rpx;
+  text-align: center;
+  margin-top: 24rpx;
+}

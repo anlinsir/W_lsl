@@ -1,0 +1,15 @@
+{
+  "navigationBarTitleText": "发布二手",
+
+  "usingComponents": {
+    "i-cell-group": "/iview/cell-group/index",
+    "i-cell": "/iview/cell/index",
+    "i-switch": "/iview/switch/index",
+    "i-input-number": "/iview/input-number/index",
+    "i-message": "/iview/message/index",
+    "i-load-more": "/iview/load-more/index",
+    "i-spin": "/iview/spin/index",
+    "action-sheet": "/components/action-sheet/index"
+    
+  }
+}

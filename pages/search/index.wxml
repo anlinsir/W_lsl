@@ -1,0 +1,48 @@
+<!--pages/search/index.wxml-->
+<view>
+
+<view class="top">
+<view class="search-bar">
+  <view class="location-tool" hover-class="location-tool-hover" bindtap="gotoCity">
+    <image src="/static/images/ico_pin.png"></image>
+    <text>{{ city.c && city.c.title || city.b && city.b.title || city.a && city.a.title || '定位中' }}</text>
+  </view>
+  <view class="search-pen">
+    <image src="/static/images/ico_search.png"></image>
+    <input value="{{ keyword }}" placeholder="搜索标题或关键词" confirm-type="search" focus="{{ searchtextfocus }}" bindconfirm="tappedSearch"></input>
+  </view>
+ 
+  
+</view>
+ <view class='cancel' bindtap="deleteSearcch" style='float:right;font-size:30rpx;color:rgba(153,153,153,1);'>取消</view>
+</view>
+
+<view class="keywords-pen">
+  <view class="keywords" wx:if="{{history.length > 0}}">
+    <view class="title" bindtap="deleteHistory">
+      历史搜索
+      <image
+        class="delete"
+        src="/static/images/icon_delete.png" />
+    </view>
+    <view class="list">
+      <block wx:for="{{history}}" wx:key="{{item}}">
+        <view class="item" hover-class="hover" data-tag="{{item}}" bindtap="onSelectKeyword">{{item}}</view>
+      </block>
+    </view>
+  </view>
+
+  <view class="keywords" wx:if="{{random.length > 0}}">
+    <view class="title">
+      猜你要搜
+    </view>
+    <view class="list">
+      <block wx:for="{{random}}" wx:key="{{item}}">
+        <view class="item" hover-class="hover" data-tag="{{item.words}}" bindtap="onSelectKeyword">{{item.words}}</view>
+      </block>
+    </view>
+  </view>
+</view>
+
+
+</view>

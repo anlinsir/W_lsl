@@ -1,0 +1,15 @@
+<!--pages/feedback/index.wxml-->
+<view>
+<!-- 全局提示 -->
+<i-message id="message" />
+
+  <view class="textarea">
+    <textarea
+      placeholder="请输入您的意见或建议……"
+      auto-height
+      bindinput="onFeedbackInput"></textarea>
+  </view>
+
+  <view class="sendBtn" hover-class="hover" bindtap="onSend">提 交</view>
+
+</view>
